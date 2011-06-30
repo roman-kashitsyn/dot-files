@@ -13,7 +13,13 @@
 (setq inhibit-startup-screen t)
 (setq indent-tabs-mode t)
 (setq default-major-mode 'text-mode)
-(setq make-backup-files nil) ; I am really hate them
+(setq make-backup-files nil) ; I really hate them
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Some useful functions with keymappings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path "~/.emacs.d")
+(load-library "custom-functions.el")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; set default font (on window system only)
