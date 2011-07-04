@@ -87,6 +87,11 @@
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
+(yas/load-directory "~/.emacs.d/snippets")
+
+(add-hook 'java-mode-hook
+	  '(lambda ()
+	     (yas/minor-mode-on)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; markdown mode
