@@ -1,12 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function definitions
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun font-exist-p (font-name)
-  "Checks if font with specified name exist."
-  (car (member font-name (font-family-list))))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; basics
+;;; Basics
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (line-number-mode t)
 (column-number-mode t)
@@ -26,10 +19,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (if window-system
     (progn
-      (setq default-font "Monospace-11")
-      (if (font-exist-p "Monaco")
-	  (setq default-font "Monaco-11"))
-      (set-face-attribute 'default nil :font default-font)))
+      (load-library "font-functions.el")
+      (setq preferred-fonts (list (make-font "Consolas" 10)
+				  (make-font "Monaco" 11)
+				  (make-font "Inconsolata" 10)
+				  (make-font "Monospace" 10)))
+      (setup-default-font preferred-fonts)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; semantic
@@ -102,3 +97,8 @@
    "Major mode for editing Markdown files" t)
 (setq auto-mode-alist
    (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; spelling
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq ispell-program-name "aspell")
