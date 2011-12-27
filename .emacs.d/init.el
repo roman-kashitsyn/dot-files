@@ -27,7 +27,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'speedbar)
 (require 'sr-speedbar)
-(setq speedbar-show-unknown-files nil)
+(setq speedbar-show-unknown-files t)
 (setq speedbar-use-images nil)
 (setq sr-speedbar-right-side nil)
 (global-set-key [C-f12] 'sr-speedbar-toggle)
@@ -38,8 +38,8 @@
 (if window-system
     (progn
       (load-library "font-functions.el")
-      (setq preferred-fonts (list (make-font "Consolas" 10)
-				  (make-font "Monaco" 11)
+      (setq preferred-fonts (list (make-font "Monaco" 10)
+				  (make-font "Consolas" 11)
 				  (make-font "Inconsolata" 10)
 				  (make-font "Monospace" 10)))
       (setup-default-font preferred-fonts)))
@@ -131,8 +131,3 @@
     (load
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
-
-(require 'package)
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
