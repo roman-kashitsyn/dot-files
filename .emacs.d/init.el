@@ -3,10 +3,31 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (line-number-mode t)
 (column-number-mode t)
-(setq inhibit-startup-screen t)
-(setq indent-tabs-mode t)
-(setq default-major-mode 'text-mode)
-(setq make-backup-files nil) ; I really hate them
+(setq inhibit-startup-screen t
+      indent-tabs-mode nil
+      default-major-mode 'text-mode
+      make-backup-files nil ; I really hate them
+      set-language-environment "UTF-8")
+
+(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/plugins")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Package setup
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq packages-to-install
+      (list 'wrap-region 'magit 'clojure-mode 'paredit 'slime
+	    'slime-repl 'markdown-mode))
+
+(require 'package)
+(add-to-list 'package-archives
+	     '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+(package-initialize)
+(dolist (pack packages-to-install)
+  (when (not (package-installed-p pack))
+    (package-refresh-contents)
+    (package-install pack)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Ido
@@ -14,13 +35,6 @@
 (require 'ido)
 (ido-mode t)
 (setq ido-enable-flex-matching t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Some useful functions with keymappings
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/plugins")
-(load-library "custom-functions.el")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Speedbar
@@ -35,14 +49,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; set default font (on window system only)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(if window-system
-    (progn
+(when window-system
       (load-library "font-functions.el")
-      (setq preferred-fonts (list (make-font "Monaco" 10)
-				  (make-font "Consolas" 11)
+      (setq preferred-fonts (list (make-font "Consolas" 11)
+                                  (make-font "Monaco" 10)
 				  (make-font "Inconsolata" 10)
 				  (make-font "Monospace" 10)))
-      (setup-default-font preferred-fonts)))
+      (setup-default-font preferred-fonts))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; semantic
@@ -109,12 +122,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; markdown mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path
-	     "~/.emacs.d/plugins/markdown-mode")
-(autoload 'markdown-mode "markdown-mode.el"
-   "Major mode for editing Markdown files" t)
 (setq auto-mode-alist
-   (cons '("\\.md" . markdown-mode) auto-mode-alist))
+      (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; spelling
@@ -122,25 +131,16 @@
 (setq ispell-program-name "aspell")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; color themes
+;;; Wrap mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
-(require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-calm-forest)))
+(require 'wrap-region)
+(add-to-list 'wrap-region-tag-active-modes 'nxml-mode)
 
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
-
-(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
-			 ("gnu" . "http://elpa.gnu.org/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Clojure Mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq swank-clojure-jar-path "/usr/local/clojure/1.3.0/clojure.jar")
+(defun turn-on-paredit-mode ()
+  (paredit-mode +1))
+(add-hook 'clojure-mode-hook 'turn-on-paredit-mode)
+(add-hook 'lisp-mode-hook 'turn-on-paredit-mode)

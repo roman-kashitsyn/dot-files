@@ -1,9 +1,10 @@
 Purpose
 =======
 
-This is a emacs config I use on my computer. It is great to have
-backup of all configs you have done on github, right? ;] Feel free to
-use it.
+This is a Emacs config I use on my computer. I use latest Emacs
+version (24 at the moment) built from sources (you can get it in
+[http://alpha.gnu.org/gnu/emacs/pretest/](gnu ftp repository)), so my
+config may not work on your machine. Feel free to use it.
 
 Install
 =======
