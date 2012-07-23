@@ -17,7 +17,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq packages-to-install
       (list 'wrap-region 'magit 'clojure-mode 'paredit 'slime
-	    'slime-repl 'markdown-mode))
+			'js2-mode 'slime-repl 'markdown-mode))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -144,3 +144,8 @@
   (paredit-mode +1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit-mode)
 (add-hook 'lisp-mode-hook 'turn-on-paredit-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; JavaScript Mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
