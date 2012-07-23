@@ -16,6 +16,9 @@ set noswapfile
 set autoindent
 set smarttab
 
+set statusline=%<%F%m%r%h%w\ (%{&ff})\ [%Y]\ %=[%l,%v]\ [%L]\ %=[%3p%%]
+set laststatus=2
+
 filetype indent on
 filetype on
 filetype plugin on
