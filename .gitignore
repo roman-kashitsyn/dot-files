@@ -1,3 +1,5 @@
+.emacs.d/machine-specific.el
+
 .xmonad/*.hi
 .xmonad/*.o
 .xmonad/*.errors

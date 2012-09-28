@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/home/roman/Work/adsyst/adsystcode/adsyst.ru'
 let g:netrw_dirhist_2='/home/roman/Work/adsyst/adsystcode/adsyst.biz'
+let g:netrw_dirhist_3='/home/roman/Documents/Other/QuickCheck-2.5/Test/QuickCheck'

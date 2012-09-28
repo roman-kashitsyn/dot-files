@@ -12,12 +12,19 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
+(defun setup-default-c-identation ()
+  "Setup default identation for c-like languages."
+  (setq indent-tabs-mode nil
+	c-basic-offset 4
+	tab-width 4))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Package setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq packages-to-install
       (list 'wrap-region 'magit 'clojure-mode 'paredit 'slime
-			'js2-mode 'slime-repl 'markdown-mode))
+			'js2-mode 'slime-repl 'markdown-mode
+			'php-mode 'scala-mode))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -45,13 +52,14 @@
 (setq speedbar-use-images nil)
 (setq sr-speedbar-right-side nil)
 (global-set-key [C-f12] 'sr-speedbar-toggle)
+(global-set-key [C-f11] 'speedbar)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; set default font (on window system only)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when window-system
       (load-library "font-functions.el")
-      (setq preferred-fonts (list (make-font "Consolas" 11)
+      (setq preferred-fonts (list ;(make-font "Consolas" 11)
                                   (make-font "Monaco" 10)
 				  (make-font "Inconsolata" 10)
 				  (make-font "Monospace" 10)))
@@ -139,7 +147,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Clojure Mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq swank-clojure-jar-path "/usr/local/clojure/1.3.0/clojure.jar")
+
 (defun turn-on-paredit-mode ()
   (paredit-mode +1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit-mode)
@@ -148,4 +156,19 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; JavaScript Mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'load-path "~/.emacs.d/plugins/espresso-mode/")
+(autoload 'espresso-mode "espresso" "Start espresso-mode" t)
+(add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . espresso-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; PHP Mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-mode-alist
+	     '("\\.php[34]?\\'\\|\\.phtml\\'" . php-mode))
+(add-hook 'php-mode-hook #'setup-default-c-identation)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Include machine-specific preferences
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load "~/.emacs.d/machine-specific.el")
