@@ -24,7 +24,7 @@
 (setq packages-to-install
       (list 'wrap-region 'magit 'clojure-mode 'paredit 'slime
 			'js2-mode 'slime-repl 'markdown-mode
-			'php-mode 'scala-mode))
+			'php-mode 'scala-mode 'color-theme))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -35,6 +35,13 @@
   (when (not (package-installed-p pack))
     (package-refresh-contents)
     (package-install pack)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Color Theme
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'color-theme)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/solarized")
+(load-theme 'solarized-light t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Ido
@@ -59,10 +66,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when window-system
       (load-library "font-functions.el")
-      (setq preferred-fonts (list (make-font "Monaco" 10)
+      (setq preferred-fonts (list (make-font "DejaVu Sans Mono" 10)
                                   (make-font "Inconsolata" 10)
                                   (make-font "Ubuntu Mono" 12)
-                                  (make-font "Monospace" 10)))
+                                  (make-font "Monaco" 10)))
       (setup-default-font preferred-fonts))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -74,17 +81,6 @@
 (require 'semantic)
 (require 'semantic/sb)
 (semantic-mode)
-(global-semantic-decoration-mode)
-(global-semantic-highlight-func-mode)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; font lock
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq comment-color "gray")
-(setq font-lock-maximum-decoration t)
-(set-face-foreground font-lock-comment-face comment-color)
-(set-face-foreground font-lock-comment-delimiter-face comment-color)
-(make-face-italic font-lock-comment-face)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; autocomplete
@@ -188,3 +184,15 @@
 ;;; Include machine-specific preferences
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load "~/.emacs.d/machine-specific.el")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
