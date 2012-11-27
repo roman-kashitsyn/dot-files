@@ -1,4 +1,5 @@
 .emacs.d/machine-specific.el
+.emacs.d/elpa/
 
 .xmonad/*.hi
 .xmonad/*.o
