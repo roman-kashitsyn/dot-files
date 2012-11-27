@@ -8,7 +8,7 @@ SHELL := bash
 QUIET := @
 
 TIMESTAMP  := $(shell date +"%Y%m%d")
-resources = .emacs.d .vim .vimrc .yi .xmonad
+resources = .emacs.d .vim .vimrc .yi .xmonad .xmodmap
 
 define mk-link
   $(ECHO) "Linking $$PWD/$1 -> ~/$1"; \

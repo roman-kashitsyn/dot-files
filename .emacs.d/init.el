@@ -7,7 +7,8 @@
       indent-tabs-mode nil
       default-major-mode 'text-mode
       make-backup-files nil ; I really hate them
-      set-language-environment "UTF-8")
+      set-language-environment "UTF-8"
+      c-default-style "java")
 
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/plugins")
@@ -16,7 +17,18 @@
   "Setup default identation for c-like languages."
   (setq indent-tabs-mode nil
 	c-basic-offset 4
-	tab-width 4))
+	tab-width 4)
+  (linum-mode 1))
+
+(add-hook 'c-mode-common-hook 'setup-default-c-identation)
+
+(windmove-default-keybindings)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; https://sites.google.com/site/steveyegge2/effective-emacs
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-c\C-m" 'execute-extended-command)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Package setup
@@ -189,7 +201,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default))))
+ '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
+ '(ede-project-directories (quote ("/home/rkashitsyn/Projects/blobfs/core"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

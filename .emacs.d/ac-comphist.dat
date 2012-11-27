@@ -1,0 +1,42 @@
+((("alloc" .
+   [0 0 0 0 1])
+  ("file_close" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("interface" .
+   [0 0 0 0 0 1 0 0 0])
+  ("buffer_to_trimmed_string" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("buffer" .
+   [0 0 0 1 0 0])
+  ("dispose_parser_event" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("make_regular_event" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3])
+  ("initial_capacity" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("INI_EVENT_PARAMETER_VALUE" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("INI_EVENT_PARAMETER_NAME" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("INI_EVENT_SECTION" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("INI_EVENT_ERROR" .
+   [0 0 0 0 0 0 0 0 0 0 2 0 0 0 0])
+  ("event_type_to_string" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("ini_event_type" .
+   [0 0 0 0 0 0 1 0 0 0 0 1 0 0])
+  ("INI_EVENT_EOF" .
+   [0 0 0 1 0 0 0 0 0 0 2 0 0])
+  ("header" .
+   [0 0 0 0 1 0])
+  ("fd" .
+   [1 0])
+  ("mapped_blockt" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("size_of_block_table" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("hdr" .
+   [0 0 1])
+  ("block_cnt" .
+   [0 0 0 0 0 1 0 0 0])))
