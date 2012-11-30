@@ -16,8 +16,11 @@
 (defun setup-default-c-identation ()
   "Setup default identation for c-like languages."
   (setq indent-tabs-mode nil
-	c-basic-offset 4
-	tab-width 4)
+        show-trailing-whitespace t
+        c-basic-offset 4
+        tab-width 4)
+  (c-set-offset 'innamespace 0)
+  (c-set-offset 'template-args-cont 0)
   (linum-mode 1))
 
 (add-hook 'c-mode-common-hook 'setup-default-c-identation)
@@ -83,10 +86,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when window-system
       (load-library "font-functions.el")
-      (setq preferred-fonts (list (make-font "DejaVu Sans Mono" 10)
+      (setq preferred-fonts (list (make-font "Monaco" 10)
+                                  (make-font "DejaVu Sans Mono" 10)
                                   (make-font "Inconsolata" 10)
-                                  (make-font "Ubuntu Mono" 12)
-                                  (make-font "Monaco" 10)))
+                                  (make-font "Ubuntu Mono" 12)))
       (setup-default-font preferred-fonts))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -201,16 +204,4 @@
 ;;; Include machine-specific preferences
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load "~/.emacs.d/machine-specific.el")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" default)))
- '(ede-project-directories (quote ("/home/rkashitsyn/Projects/blobfs/core"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
