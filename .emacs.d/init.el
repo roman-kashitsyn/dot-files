@@ -62,7 +62,7 @@
 (when window-system
   (require 'color-theme)
   (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/solarized")
-  (load-theme 'solarized-light t))
+  (load-theme 'solarized-dark t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Ido
