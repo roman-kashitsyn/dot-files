@@ -20,8 +20,7 @@
         c-basic-offset 4
         tab-width 4)
   (c-set-offset 'innamespace 0)
-  (c-set-offset 'template-args-cont 0)
-  (linum-mode 1))
+  (c-set-offset 'template-args-cont 0))
 
 (add-hook 'c-mode-common-hook 'setup-default-c-identation)
 
@@ -32,6 +31,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
+(global-set-key "\C-w" 'backward-kill-word)
+(global-set-key "\C-c\C-r" 'kill-region)
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -86,8 +87,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when window-system
       (load-library "font-functions.el")
-      (setq preferred-fonts (list (make-font "Monaco" 10)
-                                  (make-font "DejaVu Sans Mono" 10)
+      (setq preferred-fonts (list (make-font "DejaVu Sans Mono" 10)
+				  (make-font "Monaco" 10)
                                   (make-font "Inconsolata" 10)
                                   (make-font "Ubuntu Mono" 12)))
       (setup-default-font preferred-fonts))
@@ -113,7 +114,7 @@
 (ac-config-default)
 (require 'auto-complete-extension)
 
-(setq ac-auto-start nil)
+(setq ac-auto-start t)
 (setq ac-use-menu-map t)
 (setq ac-quick-help-delay 1)
 
@@ -146,8 +147,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; markdown mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq auto-mode-alist
-      (cons '("\\.md" . markdown-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; spelling
@@ -199,6 +199,11 @@
 			    (setup-default-c-identation)
                 (define-key php-mode-map '[M-S-up] 'flymake-goto-prev-error)
                 (define-key php-mode-map '[M-S-down] 'flymake-goto-next-error)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; File associations
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-mode-alist '("\\.gyp" . python-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Include machine-specific preferences
