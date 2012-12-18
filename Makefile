@@ -4,6 +4,7 @@ QUIET := @
 MV     := mv
 LN     := ln -s
 CP     := cp -R
+RM     := rm -rf
 CD     := cd
 ECHO   := echo
 UNLINK := unlink
@@ -33,6 +34,7 @@ define setup-cedet
   $(WGET) http://ignum.dl.sourceforge.net/project/cedet/cedet/$(cedet-dir).tar.gz; \
   $(ECHO) Unpacking CEDET-$(CEDET_VERSION);                                        \
   $(UNTAR) $(cedet-dir).tar.gz;                                                    \
+  $(RM)    $(cedet-dir).tar.gz;                                                    \
   $(ECHO) Building CEDET-$(CEDET_VERSION);                                         \
   $(CD) $(cedet-dir);                                                              \
   $(MAKE);                                                                         \
@@ -70,4 +72,4 @@ install-copy: $(CEDET_TARGET)
 	$(QUIET)$(foreach rsc,$(resources),$(call copy-resource,$(rsc)))
 
 $(CEDET_TARGET):
-	$(setup-cedet)
+	$(QUIET)$(call setup-cedet)
