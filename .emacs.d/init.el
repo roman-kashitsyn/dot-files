@@ -20,6 +20,7 @@
         c-basic-offset 4
         tab-width 4)
   (c-set-offset 'innamespace 0)
+  (c-set-offset 'topmost-intro-cont 0)
   (c-set-offset 'template-args-cont 0))
 
 (add-hook 'c-mode-common-hook 'setup-default-c-identation)
@@ -73,7 +74,7 @@
 ;; https://sites.google.com/site/steveyegge2/effective-emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c\C-m" 'magit-status)
+(global-set-key [f9] 'magit-status)
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-c\C-r" 'kill-region)
 
@@ -114,6 +115,7 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 
+(require 'projectile)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Speedbar
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -242,4 +244,3 @@
 ;;; Include machine-specific preferences
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load "~/.emacs.d/machine-specific.el")
-
