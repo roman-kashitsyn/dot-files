@@ -21,7 +21,7 @@
         tab-width 4)
   (c-set-offset 'innamespace 0)
   (c-set-offset 'topmost-intro-cont 0)
-  (c-set-offset 'template-args-cont 0))
+  (c-set-offset 'access-label '/))
 
 (add-hook 'c-mode-common-hook 'setup-default-c-identation)
 
@@ -57,7 +57,6 @@
 (global-srecode-minor-mode 1)
 
 (defun my-cedet-hook ()
-  (local-set-key [(control return)] 'semantic-ia-complete-symbol)
   (local-set-key "\C-c?" 'semantic-ia-complete-symbol-menu)
   (local-set-key "\C-c=" 'semantic-decoration-include-visit)
 
@@ -74,7 +73,7 @@
 ;; https://sites.google.com/site/steveyegge2/effective-emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key [f9] 'magit-status)
+(global-set-key "\C-x\C-g" 'magit-status)
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-c\C-r" 'kill-region)
 
@@ -240,6 +239,15 @@
 ;;; Gyp
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'gyp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Autopairing
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'autopair)
+(defvar autopair-modes '(c-mode-common-hook java-mode-hook))
+(defun turn-on-autopair-mode () (autopair-mode 1))
+(dolist (mode autopair-modes)
+  (add-hook mode 'turn-on-autopair-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Include machine-specific preferences
