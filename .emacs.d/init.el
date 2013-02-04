@@ -87,7 +87,8 @@
 (setq packages-to-install
       (list 'wrap-region 'magit 'clojure-mode 'paredit 'slime
 			'js2-mode 'slime-repl 'markdown-mode
-			'php-mode 'scala-mode 'color-theme))
+			'php-mode 'scala-mode 'color-theme
+			'multiple-cursors))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -248,6 +249,15 @@
 (defun turn-on-autopair-mode () (autopair-mode 1))
 (dolist (mode autopair-modes)
   (add-hook mode 'turn-on-autopair-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Multiple Cursord
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Include machine-specific preferences
