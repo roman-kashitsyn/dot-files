@@ -21,7 +21,7 @@
         tab-width 4)
   (c-set-offset 'innamespace 0)
   (c-set-offset 'topmost-intro-cont 0)
-  (c-set-offset 'access-label '/))
+  (c-set-offset 'access-label '-))
 
 (add-hook 'c-mode-common-hook 'setup-default-c-identation)
 
@@ -75,11 +75,12 @@
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-x\C-g" 'magit-status)
 (global-set-key "\C-w" 'backward-kill-word)
-(global-set-key "\C-c\C-r" 'kill-region)
+(global-set-key "\C-c\C-k" 'kill-region)
+
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+;(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Package setup
@@ -117,6 +118,8 @@
 (setq ido-enable-flex-matching t)
 
 (require 'projectile)
+(global-set-key "\C-c\C-f" 'projectile-find-file)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Speedbar
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -258,6 +261,13 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; C# Mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+(setq auto-mode-alist
+      (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Include machine-specific preferences

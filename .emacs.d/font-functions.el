@@ -30,3 +30,7 @@
 	(set-face-attribute
 	 'default nil :font
 	 (make-font-name (car existing-fonts))))))
+
+(defun use-font (font)
+  "Tries to setup specified font"
+  (setup-default-font (list font)))
