@@ -31,6 +31,6 @@
 	 'default nil :font
 	 (make-font-name (car existing-fonts))))))
 
-(defun use-font (font)
+(defun use-font (family size)
   "Tries to setup specified font"
-  (setup-default-font (list font)))
+  (setup-default-font (list (make-font family size))))

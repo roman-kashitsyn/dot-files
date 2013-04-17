@@ -108,7 +108,8 @@
   (require 'color-theme)
   (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes")
   (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/solarized")
-  (load-theme 'zenburn t))
+  (load-theme 'solarized-dark t)
+  (set-face-attribute 'font-lock-comment-face nil :italic t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Ido
@@ -119,6 +120,7 @@
 
 (require 'projectile)
 (global-set-key "\C-c\C-f" 'projectile-find-file)
+(projectile-global-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Speedbar
