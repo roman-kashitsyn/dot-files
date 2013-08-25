@@ -13,11 +13,13 @@
 	'clojure-mode
 	'csharp-mode
 	'projectile
+	'ack-and-a-half
 	'paredit
 	'js2-mode
 	'markdown-mode
 	'php-mode
 	'scala-mode
+	'cmake-mode
 	'color-theme
 	'multiple-cursors
 	'yasnippet))
@@ -38,6 +40,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'basics)
+(require 'my-keybindings)
 (require 'my-autocomplete)
 (require 'my-cpp)
 (require 'my-lisp)

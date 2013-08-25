@@ -247,3 +247,4 @@ This variable will typically contain include paths, e.g., -I~/MyProject."
   " Clang"
   clang-completion-mode-map)
 
+(provide 'clang-completion-mode)

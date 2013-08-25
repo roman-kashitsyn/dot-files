@@ -26,8 +26,11 @@
 	      '(ac-source-abbrev
 		ac-source-dictionary
 		ac-source-semantic
-		ac-source-yasnippet
 		ac-source-words-in-same-mode-buffers))
+
+;; Temporary hack to fix autocomplete broken by yasnippet 0.8.0
+;; http://www.kurup.org/blog/2012/10/15/emacs-autocomplete-stumbles-on-yasnippet/
+(defun yas/current-snippet-table () '())
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Ido
