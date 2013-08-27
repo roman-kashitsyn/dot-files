@@ -18,10 +18,12 @@
 	'js2-mode
 	'markdown-mode
 	'php-mode
+	'haskell-mode
 	'scala-mode
 	'cmake-mode
 	'color-theme
 	'multiple-cursors
+	'jabber
 	'yasnippet))
 
 (require 'package)
@@ -49,6 +51,7 @@
 (require 'my-js)
 (require 'my-markup)
 (require 'my-gyp)
+(require 'my-jabber)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; End of init.el
