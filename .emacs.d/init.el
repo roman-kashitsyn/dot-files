@@ -24,7 +24,9 @@
 	'color-theme
 	'multiple-cursors
 	'jabber
-	'yasnippet))
+	'yasnippet
+	'gtags
+	'go-mode))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -47,6 +49,7 @@
 (require 'my-cpp)
 (require 'my-lisp)
 (require 'my-php)
+(require 'my-haskell)
 (require 'my-csharp)
 (require 'my-js)
 (require 'my-markup)
