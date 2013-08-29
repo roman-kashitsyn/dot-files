@@ -17,7 +17,7 @@ MAKE   := make
 CEDET_VERSION := 1.1
 
 cedet-dir := cedet-$(CEDET_VERSION)
-resources = .emacs.d .vim .vimrc .yi .xmonad .xmodmaprc
+resources = .emacs.d .vim .vimrc .yi .xmonad .xmodmaprc .tmux.conf
 
 TIMESTAMP  := $(shell date +"%Y%m%d")
 TMPDIR := /tmp
