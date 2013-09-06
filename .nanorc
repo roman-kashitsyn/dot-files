@@ -1,0 +1,3 @@
+set speller "/usr/bin/aspell"
+set tabstospaces
+set undo

@@ -8,7 +8,9 @@
       jabber-history-enabled t
       jabber-use-global-history nil
       jabber-backlog-number 40
-      jabber-backlog-days 30)
+      jabber-backlog-days 30
+      jabber-chat-buffer-show-avatar nil
+      jabber-vcard-avatars-retrieve nil)
 
 (defvar libnotify-program "notify-send")
 
