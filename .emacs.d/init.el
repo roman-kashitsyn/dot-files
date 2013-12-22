@@ -7,7 +7,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar packages-to-install
   (list 'auto-complete
+	'autopair
 	'dash
+	'helm
+	'helm-gtags
 	'wrap-region
 	'magit
 	'clojure-mode
@@ -31,6 +34,8 @@
 (require 'package)
 (add-to-list 'package-archives
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+	     '("milkbox" . "http://melpa.milkbox.net/packages"))
 
 (package-initialize)
 (dolist (pack packages-to-install)

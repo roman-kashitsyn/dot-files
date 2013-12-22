@@ -10,8 +10,6 @@
       set-language-environment "UTF-8"
       c-default-style "java")
 
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; https://sites.google.com/site/steveyegge2/effective-emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -27,8 +25,7 @@
   (require 'color-theme)
   (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes")
   (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/solarized")
-  (load-theme 'zenburn t)
-  (set-face-attribute 'font-lock-comment-face nil :italic t))
+  (load-theme 'zenburn t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; spelling

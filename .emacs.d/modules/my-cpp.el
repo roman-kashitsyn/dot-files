@@ -14,55 +14,6 @@
 (add-hook 'c-mode-common-hook 'setup-default-c-indentation)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; CEDET
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defvar my-cedet-home "~/cedet-1.1")
-
-(defun init-cedet ()
-  (when (not (featurep 'cedet))
-    (load-file (expand-file-name "cedet.el"
-			       (expand-file-name "common"
-						 my-cedet-home)))
-
-    ;; Enable EDE (Project Management) features
-    (require 'semantic-lex-spp)
-    (global-ede-mode t)
-    (ede-enable-generic-projects)
-    ;; Enable EDE for a pre-existing C++ project
-    ;; (ede-cpp-root-project "NAME" :file "~/myproject/Makefile")
-
-    ;; Enabling Semantic (code-parsing, smart completion) features
-    ;; Select one of the following:
-
-    ;; * This enables the database and idle reparse engines
-    ;;(semanqtic-load-enable-minimum-features)
-
-    ;; * This enables some tools useful for coding, such as summary mode,
-    ;;   imenu support, and the semantic navigator
-    (semantic-load-enable-code-helpers)
-
-    ;; * This enables even more coding tools such as intellisense mode,
-    ;;   decoration mode, and stickyfunc mode (plus regular code helpers)
-    (semantic-load-enable-gaudy-code-helpers)
-
-    ;; Enable SRecode (Template management) minor-mode.
-    (global-srecode-minor-mode 1)))
-
-(defun my-cedet-hook ()
-  (init-cedet)
-  (local-set-key "\C-c?" 'semantic-ia-complete-symbol-menu)
-  (local-set-key "\C-c=" 'semantic-decoration-include-visit)
-
-  (local-set-key "\C-cj" 'semantic-ia-fast-jump)
-  (local-set-key "\C-cq" 'semantic-ia-show-doc)
-  (local-set-key "\C-cs" 'semantic-ia-show-summary)
-  (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle)
-  (local-set-key "\C-c>" 'semantic-complete-analyze-inline))
-
-(add-hook 'c-mode-common-hook 'my-cedet-hook)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; clang integration
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun enable-clang-tools ()
@@ -70,5 +21,15 @@
   (require 'clang-completion-mode))
 
 (add-hook 'c-mode-common-hook 'enable-clang-tools)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; gtags + helm integration
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'helm-gtags-mode)
+(custom-set-variables
+ '(helm-gtags-path-style 'relative)
+ '(helm-gtags-ignore-case t)
+ '(helm-gtags-auto-update t))
 
 (provide 'my-cpp)
