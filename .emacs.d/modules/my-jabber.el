@@ -35,4 +35,7 @@
 
     (add-hook 'jabber-alert-message-hooks 'libnotify-jabber-notify)))
 
+(define-key jabber-chat-mode-map [return] 'newline)
+(define-key jabber-chat-mode-map [C-return] 'jabber-chat-buffer-send)
+
 (provide 'my-jabber)

@@ -8,6 +8,7 @@
 (defvar packages-to-install
   (list 'auto-complete
 	'autopair
+	'ace-jump-mode
 	'dash
 	'helm
 	'helm-gtags
@@ -16,7 +17,7 @@
 	'clojure-mode
 	'csharp-mode
 	'projectile
-	'ack-and-a-half
+	'ag
 	'paredit
 	'js2-mode
 	'markdown-mode
@@ -35,7 +36,7 @@
 (add-to-list 'package-archives
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-	     '("milkbox" . "http://melpa.milkbox.net/packages"))
+	     '("milkbox" . "http://melpa.milkbox.net/packages/"))
 
 (package-initialize)
 (dolist (pack packages-to-install)

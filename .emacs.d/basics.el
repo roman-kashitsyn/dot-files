@@ -8,7 +8,9 @@
       default-major-mode 'text-mode
       make-backup-files nil ; I really hate them
       set-language-environment "UTF-8"
-      c-default-style "java")
+      c-default-style "java"
+      sgml-basic-offset 4
+      nxml-child-indent 4)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; https://sites.google.com/site/steveyegge2/effective-emacs
@@ -50,7 +52,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Include machine-specific preferences
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(load "~/.emacs.d/machine-specific.el")
+(defvar machine-specific-file "~/.emacs.d/machine-specific.el")
+(if (file-exists-p machine-specific-file)
+    (load machine-specific-file))
 
 (defun smart-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
