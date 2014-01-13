@@ -6,11 +6,15 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 
-(global-set-key "\C-x\C-m" 'execute-extended-command)
-(global-set-key "\C-c\C-g" 'magit-status)
+(global-set-key (kbd "C-x C-m") 'execute-extended-command)
+(global-set-key (kbd "C-c C-g") 'magit-status)
+(global-set-key (kbd "M-.") 'helm-gtags-find-tag)
 
 (require 'windmove)
 (windmove-default-keybindings)
+
+(require 'git-messenger)
+(global-set-key (kbd "C-x v p") 'git-messenger:popup-message)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 

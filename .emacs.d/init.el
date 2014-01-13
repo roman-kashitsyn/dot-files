@@ -14,6 +14,7 @@
 	'helm-gtags
 	'wrap-region
 	'magit
+	'git-messenger
 	'clojure-mode
 	'csharp-mode
 	'projectile
