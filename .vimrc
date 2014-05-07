@@ -1,20 +1,38 @@
 set nocompatible
-color desert
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'tomasr/molokai'
+Bundle 'scrooloose/syntastic'
+Bundle 'Blackrush/vim-gocode'
+Bundle 'jansenm/vim-cmake'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-fugitive'
 
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set nu
+set autoindent
+set smarttab
 
 set encoding=utf8
 set termencoding=utf-8
 
+if has("guirunning")
+    set guifont=Meslo_LG_S:h11
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=L
+endif
+
 set nobackup
 set nowritebackup
 set noswapfile
-set autoindent
-set smarttab
 
 set statusline=%<%F%m%r%h%w\ (%{&ff})\ [%Y]\ %=[%l,%v]\ [%L]\ %=[%3p%%]
 set laststatus=2
@@ -22,11 +40,6 @@ set laststatus=2
 filetype indent on
 filetype on
 filetype plugin on
-
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
 
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell
@@ -43,6 +56,10 @@ let Tlist_Ctags_Cmd='/usr/bin/ctags'
 map <C-F12> :TlistToggle<CR>
 map <C-F11> :TlistUpdate<CR>
 
-let python_highlight_all = 1
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
 
+if has("autocmd")
+    autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+    autocmd FileType go setlocal ts=8 sts=8 sw=8 noexpandtab
+endif
