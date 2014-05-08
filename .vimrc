@@ -11,6 +11,8 @@ Bundle 'Blackrush/vim-gocode'
 Bundle 'jansenm/vim-cmake'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'nelstrom/vim-visual-star-search'
 
 set expandtab
 set tabstop=4
