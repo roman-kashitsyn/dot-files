@@ -47,12 +47,8 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell
 set noerrorbells
 
-autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
-      \ if &ft =~# '^\%(conf\|modula2\)$' |
-      \   set ft=markdown |
-      \ else |
-      \   setf markdown |
-      \ endif
+au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn set ft=markdown
+au BufNewFile,BufRead *.gradle set ft=groovy
 
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
 map <C-F12> :TlistToggle<CR>
