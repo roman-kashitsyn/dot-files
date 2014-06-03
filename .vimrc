@@ -13,6 +13,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'nelstrom/vim-visual-star-search'
+Bundle 'bling/vim-airline'
 
 set expandtab
 set tabstop=4
