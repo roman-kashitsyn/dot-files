@@ -4,13 +4,21 @@
 (line-number-mode t)
 (column-number-mode t)
 (setq inhibit-startup-screen t
-      indent-tabs-mode nil
       default-major-mode 'text-mode
       make-backup-files nil ; I really hate them
       set-language-environment "UTF-8"
       c-default-style "java"
       sgml-basic-offset 4
       nxml-child-indent 4)
+(setq-default indent-tabs-mode nil)
+
+(global-auto-revert-mode 1)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Buffer naming scheme
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; https://sites.google.com/site/steveyegge2/effective-emacs
@@ -19,15 +27,6 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Color Theme
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when window-system
-  (require 'color-theme)
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes")
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/solarized")
-  (load-theme 'zenburn t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; spelling
@@ -42,12 +41,6 @@
 ;;; Russian-Colemak input method
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load-file "~/.emacs.d/russian-colemak.el")
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Directory tree module
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/.emacs.d/plugins/dirtree")
-(require 'dirtree)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Include machine-specific preferences

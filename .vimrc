@@ -14,6 +14,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'bling/vim-airline'
+Bundle 'junegunn/seoul256.vim'
+Bundle 'Shougo/unite.vim'
 
 set expandtab
 set tabstop=4
