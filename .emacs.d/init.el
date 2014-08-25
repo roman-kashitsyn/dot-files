@@ -9,42 +9,42 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar packages-to-install
   (list 'auto-complete
-	'autopair
-	'ace-jump-mode
-	'dash
+        'autopair
+        'ace-jump-mode
+        'dash
         'smex
-	'helm
-	'helm-gtags
-	'wrap-region
+        'helm
+        'helm-gtags
+        'wrap-region
         'expand-region
-	'magit
-	'git-messenger
-	'clojure-mode
-	'csharp-mode
+        'magit
+        'git-messenger
+        'clojure-mode
+        'csharp-mode
         'clang-format
-	'projectile
-	'ag
-	'paredit
-	'js2-mode
-	'markdown-mode
-	'php-mode
-	'haskell-mode
-	'scala-mode
+        'projectile
+        'ag
+        'paredit
+        'js2-mode
+        'markdown-mode
+        'php-mode
+        'haskell-mode
+        'scala-mode
         'groovy-mode
-	'cmake-mode
-	'color-theme
-	'multiple-cursors
-	'jabber
-	'yasnippet
+        'cmake-mode
+        'color-theme
+        'multiple-cursors
+        'jabber
+        'yasnippet
         'sublime-themes
-	'gtags
-	'go-mode))
+        'gtags
+        'go-mode))
 
 (require 'package)
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-	     '("milkbox" . "http://melpa.milkbox.net/packages/"))
+             '("milkbox" . "http://melpa.milkbox.net/packages/"))
 (setq package-enable-at-startup nil)
 (package-initialize)
 (dolist (pack packages-to-install)
