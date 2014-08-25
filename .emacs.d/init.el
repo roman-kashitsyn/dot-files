@@ -37,6 +37,7 @@
         'jabber
         'yasnippet
         'sublime-themes
+        'iy-go-to-char
         'gtags
         'go-mode))
 
