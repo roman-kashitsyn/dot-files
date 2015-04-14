@@ -1,4 +1,6 @@
 .emacs.d/machine-specific.el
+.emacs.d/custom.el
+.emacs.d/session*
 .emacs.d/elpa/
 
 .xmonad/*.hi
@@ -7,3 +9,4 @@
 .xmonad/*-linux
 
 .vim/.netrwhist
+.vim/bundle/*

@@ -1,14 +1,13 @@
-(add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/plugins")
 (add-to-list 'load-path "~/.emacs.d/modules")
 
-(require 'basics)
+(load-library "~/.emacs.d/basics.el")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Package setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defvar packages-to-install
-  (list 'auto-complete
+  (list 'company
         'autopair
         'ace-jump-mode
         'dash
@@ -29,6 +28,8 @@
         'markdown-mode
         'php-mode
         'haskell-mode
+        'merlin
+        'ocp-indent
         'scala-mode
         'groovy-mode
         'cmake-mode
@@ -64,10 +65,12 @@
 (require 'my-keybindings)
 (require 'my-color-theme)
 (require 'my-autocomplete)
+(require 'my-orgmode)
 (require 'my-cpp)
 (require 'my-lisp)
 (require 'my-php)
 (require 'my-haskell)
+(require 'my-ocaml)
 (require 'my-csharp)
 (require 'my-js)
 (require 'my-markup)
