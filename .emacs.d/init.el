@@ -55,8 +55,6 @@
     (package-refresh-contents)
     (package-install pack)))
 
-(require 'w3-autoloads)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Modules initialization *must* be placed after the package system
 ;;; initialization.
