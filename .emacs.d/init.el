@@ -30,7 +30,7 @@
         'haskell-mode
         'merlin
         'ocp-indent
-        'scala-mode
+        'scala-mode2
         'groovy-mode
         'cmake-mode
         'color-theme
