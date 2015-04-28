@@ -4,18 +4,13 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'tomasr/molokai'
-Bundle 'scrooloose/syntastic'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'jansenm/vim-cmake'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'nelstrom/vim-visual-star-search'
-Bundle 'bling/vim-airline'
-Bundle 'junegunn/seoul256.vim'
-Bundle 'Shougo/unite.vim'
+Bundle 'google/vim-colorscheme-primary'
 
 set expandtab
 set tabstop=4
