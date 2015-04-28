@@ -30,6 +30,7 @@
         'haskell-mode
         'merlin
         'ocp-indent
+        'ensime
         'scala-mode2
         'groovy-mode
         'cmake-mode
@@ -69,6 +70,7 @@
 (require 'my-php)
 (require 'my-haskell)
 (require 'my-ocaml)
+(require 'my-scala)
 (require 'my-csharp)
 (require 'my-js)
 (require 'my-markup)
