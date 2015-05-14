@@ -10,7 +10,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'nelstrom/vim-visual-star-search'
-Bundle 'google/vim-colorscheme-primary'
+Bundle 'scrooloose/syntastic'
 
 set expandtab
 set tabstop=4
@@ -36,6 +36,15 @@ set noswapfile
 
 set statusline=%<%F%m%r%h%w\ (%{&ff})\ [%Y]\ %=[%l,%v]\ [%L]\ %=[%3p%%]
 set laststatus=2
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 filetype indent on
 filetype on
