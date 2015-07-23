@@ -28,6 +28,8 @@
         'markdown-mode
         'php-mode
         'haskell-mode
+        'monokai-theme
+        'base16-theme
         'merlin
         'ocp-indent
         'ensime
@@ -70,7 +72,6 @@
 (require 'my-php)
 (require 'my-haskell)
 (require 'my-ocaml)
-(require 'my-scala)
 (require 'my-csharp)
 (require 'my-js)
 (require 'my-markup)
