@@ -28,6 +28,7 @@
         'markdown-mode
         'php-mode
         'haskell-mode
+        'ghc
         'monokai-theme
         'base16-theme
         'merlin

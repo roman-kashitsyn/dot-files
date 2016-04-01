@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; C++ indentation
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun setup-default-c-indentation ()
+(defun my-cpp-setup-default-c-indentation ()
   "Setup default indentation for c-like languages."
   (setq indent-tabs-mode nil
         show-trailing-whitespace t
@@ -13,16 +13,20 @@
   (c-set-offset 'labels 0)
   (c-set-offset 'access-label '-))
 
-(add-hook 'c-mode-common-hook 'setup-default-c-indentation)
+(defun my-cpp-enable-subword-mode ()
+  (subword-mode 1))
+
+(add-hook 'c-mode-common-hook 'my-cpp-setup-default-c-indentation)
+(add-hook 'c-mode-common-hook 'my-cpp-enable-subword-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; clang integration
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun enable-clang-tools ()
+(defun my-cpp-enable-clang-tools ()
   (require 'clang-format)
   (require 'clang-completion-mode))
 
-(add-hook 'c-mode-common-hook 'enable-clang-tools)
+(add-hook 'c-mode-common-hook 'my-cpp-enable-clang-tools)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; gtags + helm integration

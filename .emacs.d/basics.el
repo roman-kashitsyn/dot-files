@@ -13,6 +13,7 @@
 (setq-default indent-tabs-mode nil)
 
 (global-auto-revert-mode 1)
+(subword-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Buffer naming scheme
