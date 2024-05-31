@@ -1,8 +1,27 @@
-let g:syntastic_rust_checkers = []
-let g:rustfmt_autosave = 1
+call plug#begin()
+Plug 'robertmeta/nofrils'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Go setup
+Plug 'nvim-treesitter/nvim-treesitter'
+" End go setup
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'dense-analysis/ale'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'rhysd/vim-grammarous'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-unimpaired'
+Plug 'lervag/vimtex'
+Plug 'machakann/vim-highlightedyank'
+call plug#end()
 
-"let g:airline_powerline_fonts = 1
-"set laststatus=2
+set termguicolors
+
 let g:nofrils_strbackgrounds=1
 let g:lightline = {
       \ 'colorscheme': 'nord',
@@ -13,21 +32,13 @@ let g:lightline = {
       \ },
       \ }
 
-let g:gutentags_modules = ['ctags']
-let g:gutentags_project_root = ['.git']
-let g:gutentags_add_default_project_roots=0
-let g:gutentags_cache_dir = expand('~/.cache/tags')
-augroup GutentagsStatusLineRefresher
-    autocmd!
-    autocmd User GutentagsUpdating call lightline#update()
-    autocmd User GutentagsUpdated call lightline#update()
-augroup END
-
 colorscheme nofrils-dark
 set background=dark
 
 let g:grammarous#languagetool_cmd = '/usr/local/bin/languagetool'
 let g:grammarous#use_location_list = 1
+
+let g:deoplete#enable_at_startup = 1
 
 set wildignore+=*/tmp/*,*/target/*,*/bazel-*/*,bazel-*/*,*.so,*.swp,*.zip
 
@@ -84,12 +95,10 @@ map <leader>gf :GFiles<CR>
 map <leader>gb :Buf<CR>
 map <leader>gg :G<CR>
 
-tnoremap <C-[> <C-\><C-n>
+set autoread                                                                                                                                                                                    
+au CursorHold * checktime
 
-augroup autoformat_settings
-  autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType rust AutoFormatBuffer rustfmt
-augroup END
+tnoremap <C-[> <C-\><C-n>
 
 if has('persistent-undo')
     set undofile
