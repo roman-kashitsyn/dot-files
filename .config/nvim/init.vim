@@ -10,6 +10,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'dense-analysis/ale'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vim-slash'
 Plug 'itchyny/lightline.vim'
 Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-fugitive'
